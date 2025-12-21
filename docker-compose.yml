@@ -79,7 +79,7 @@ services:
       - ./data_generation:/opt/airflow/data_generation
       - ./dbt_project:/opt/airflow/dbt_project
       - ./logs:/opt/airflow/logs
-      - ./requirements.txt:/requirements.txt
+      - ./requirements-docker.txt:/requirements.txt
     command: >
       bash -c "pip install --no-cache-dir -r /requirements.txt && airflow webserver"
     healthcheck:
@@ -111,7 +111,7 @@ services:
       - ./data_generation:/opt/airflow/data_generation
       - ./dbt_project:/opt/airflow/dbt_project
       - ./logs:/opt/airflow/logs
-      - ./requirements.txt:/requirements.txt
+      - ./requirements-docker.txt:/requirements.txt
     command: >
       bash -c "pip install --no-cache-dir -r /requirements.txt && airflow scheduler"
     networks:
@@ -134,7 +134,7 @@ services:
       DB_PASSWORD: airflow
     volumes:
       - ./dashboard:/app
-      - ./requirements.txt:/requirements.txt
+      - ./requirements-docker.txt:/requirements.txt
     working_dir: /app
     command: >
       bash -c "apt-get update && 
