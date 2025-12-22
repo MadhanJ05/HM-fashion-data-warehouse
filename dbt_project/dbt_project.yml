@@ -1,0 +1,36 @@
+# H&M Fashion Data Warehouse - dbt Project Configuration
+# ======================================================
+
+name: 'hm_fashion_warehouse'
+version: '1.0.0'
+config-version: 2
+
+# Project paths
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+analysis-paths: ["analysis"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# Profile (connection details)
+profile: 'hm_fashion_warehouse'
+
+# Model configurations
+models:
+  hm_fashion_warehouse:
+    # Staging layer - clean raw data
+    staging:
+      +schema: staging
+      +materialized: view
+    
+    # Intermediate layer - enriched data
+    intermediate:
+      +schema: analytics
+      +materialized: view
+    
+    # Marts layer - business metrics
+    marts:
+      +schema: marts
+      +materialized: table

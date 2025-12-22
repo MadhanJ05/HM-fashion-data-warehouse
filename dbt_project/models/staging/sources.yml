@@ -1,0 +1,15 @@
+# Source definitions - tells dbt where raw data lives
+
+version: 2
+
+sources:
+  - name: raw
+    database: ecommerce
+    schema: raw
+    tables:
+      - name: articles
+        description: "H&M product catalog - 105K products"
+      - name: customers
+        description: "H&M customer data - ~1M customers"
+      - name: transactions
+        description: "H&M purchase transactions - 15M rows"
