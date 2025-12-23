@@ -6,7 +6,7 @@ hm_fashion_warehouse:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: postgres
       port: 5432
       user: airflow
       password: airflow
