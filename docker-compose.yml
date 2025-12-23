@@ -134,7 +134,7 @@ services:
       DB_PASSWORD: airflow
     volumes:
       - ./dashboard:/app
-      - ./requirements-docker.txt:/requirements.txt
+      - ./dashboard/requirements.txt:/requirements.txt
     working_dir: /app
     command: >
       bash -c "apt-get update && 
